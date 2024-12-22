@@ -1,9 +1,10 @@
-{% raw %}
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> <script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: { skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'], inlineMath: [['$','$'], ["\\(","\\)"]], displayMath: [["$$","$$"], ["\\[","\\]"]] } }); </script>
 
 # 第二届CN-fnst::CTF web部分复现
 
 {:toc}
+
+{% raw %}
 
 赛事官网：https://ctf.cn-fnst.top/
 
