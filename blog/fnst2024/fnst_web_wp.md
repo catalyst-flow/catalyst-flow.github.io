@@ -3,8 +3,6 @@
 
 # 第二届CN-fnst::CTF web部分复现
 
-[:toc]
-
 赛事官网：https://ctf.cn-fnst.top/
 
 ## ezphp
