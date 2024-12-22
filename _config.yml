@@ -9,6 +9,7 @@ markdown: kramdown
 kramdown:
   math_engine: mathjax
   syntax_highlighter: rouge
+  toc_levels: 1..6  # 设置目录生成的标题层级，默认 1..6
 lsi: false
 safe: true
 source: 
