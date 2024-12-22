@@ -12,7 +12,6 @@ kramdown:
   syntax_highlighter: rouge
 lsi: false
 safe: true
-toc:true
 source: 
 incremental: false
 highlighter: rouge
