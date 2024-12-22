@@ -1,14 +1,3 @@
----
-html:
-    toc: true
-    toc_depth: 6
-    toc_float: true
-        collapsed: false
-        smooth_scroll: true
----
-
-
-
 {% raw %}
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> <script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: { skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'], inlineMath: [['$','$'], ["\\(","\\)"]], displayMath: [["$$","$$"], ["\\[","\\]"]] } }); </script>
 
