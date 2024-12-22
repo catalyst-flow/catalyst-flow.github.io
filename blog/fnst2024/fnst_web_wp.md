@@ -2,7 +2,7 @@
 
 # 第二届CN-fnst::CTF web部分复现
 
-{:toc}
+{% toc %}
 
 {% raw %}
 
