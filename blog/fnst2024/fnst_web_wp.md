@@ -1,3 +1,14 @@
+---
+html:
+    toc: true
+    toc_depth: 6
+    toc_float: true
+        collapsed: false
+        smooth_scroll: true
+---
+
+[TOC]
+
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> <script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: { skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'], inlineMath: [['$','$'], ["\\(","\\)"]], displayMath: [["$$","$$"], ["\\[","\\]"]] } }); </script>
 
 # 第二届CN-fnst::CTF web部分复现
@@ -232,8 +243,7 @@ def waf_check(value):
 回到正题，继续审计代码，`shell`下显然存在参数为`name`的ssti注入(`render_template_string`函数)，但是这个`waf`过滤了这些：` ['os', 'set', '__builtins__', '=', '.', '{{', '}}', 'popen', '+', '__'] `。因此就是ssti的过滤绕过了。
 
 如果我们还是想用comment_me一样的方法可以怎么做呢，看上去限制很多，但其实就和没有限制一样，几个关键的步骤是：
-
-1. `{{...}}`用来输出内容,如被过滤可以使用`{%...%}`，其表示陈述性语句，所以我们给它加一个`print()`用来输出就好了；
+`\{\{...\}\}`用来输出内容,如被过滤可以使用`\{\%...\%\}`，其表示陈述性语句，所以我们给它加一个`print()`用来输出就好了；
 2. `.`与上一题一样，用`['']`拼接代替`.`即可；
 3. 字符串拼接不一定需要`+`，`'a'+'b'`与`'a''b'`是一样的效果；
 4. `_`可以用十六进制编码`\x5f`代替；
@@ -254,6 +264,7 @@ def waf_check(value):
 读flag就好了：
 `{%print(''['_''_class_''_']['_''_base_''_']['_''_subclasses_''_']()[132]['_''_init_''_']['_''_globals_''_']['p''open']('cat f1ag_H3re11')['read']())%}`
 
+1. `
 PS:
 1. 官方wp上来一个g给我整不会了，有点没看懂。
 2. 一篇相当不错的绕过姿势blog:[最全SSTI模板注入waf绕过总结](https://blog.csdn.net/2301_76690905/article/details/134301620)
