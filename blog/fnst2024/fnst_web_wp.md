@@ -9,6 +9,7 @@ html:
 
 [TOC]
 
+{% raw %}
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> <script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: { skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'], inlineMath: [['$','$'], ["\\(","\\)"]], displayMath: [["$$","$$"], ["\\[","\\]"]] } }); </script>
 
 # 第二届CN-fnst::CTF web部分复现
@@ -243,7 +244,7 @@ def waf_check(value):
 回到正题，继续审计代码，`shell`下显然存在参数为`name`的ssti注入(`render_template_string`函数)，但是这个`waf`过滤了这些：` ['os', 'set', '__builtins__', '=', '.', '{{', '}}', 'popen', '+', '__'] `。因此就是ssti的过滤绕过了。
 
 如果我们还是想用comment_me一样的方法可以怎么做呢，看上去限制很多，但其实就和没有限制一样，几个关键的步骤是：
-`\{\{...\}\}`用来输出内容,如被过滤可以使用`\{\%...\%\}`，其表示陈述性语句，所以我们给它加一个`print()`用来输出就好了；
+`{{...}}`用来输出内容,如被过滤可以使用`{%...%}`，其表示陈述性语句，所以我们给它加一个`print()`用来输出就好了；
 2. `.`与上一题一样，用`['']`拼接代替`.`即可；
 3. 字符串拼接不一定需要`+`，`'a'+'b'`与`'a''b'`是一样的效果；
 4. `_`可以用十六进制编码`\x5f`代替；
@@ -366,3 +367,5 @@ if ($client_ip === $server_ip) {
 ## filechecker_revenge(暂未完成)
 
 寒假有时间再复现，未完待续......
+
+{% endraw %}
