@@ -3,15 +3,16 @@ description: 死生从此各西东
 remote_theme: pages-themes/cayman@v0.2.0
 plugins:
 - jekyll-remote-theme
+- jekyll-table-of-contents
 gist:
   noscript: false
 markdown: kramdown
 kramdown:
   math_engine: mathjax
   syntax_highlighter: rouge
-  toc_levels: 1..6  # 设置目录生成的标题层级，默认 1..6
 lsi: false
 safe: true
+toc:true
 source: 
 incremental: false
 highlighter: rouge
