@@ -1,4 +1,4 @@
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> <script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: { skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'], inlineMath: [['$','$'], ["\\(","\\)"]], displayMath: [["$$","$$"], ["\\[","\\]"]] } }); </script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> <script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: { skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'], inlineMath: [['$','$'], ["\\(","\\)"],["\(", "\)"]], displayMath: [["$$","$$"], ["\\[","\\]"],["\[", "\]"]] } }); </script>
 
 # 20240xl4ughctf密码学部分题目复现
 
@@ -130,6 +130,7 @@ for _ in range(100):
     m //= gcd(m, uu)
 ```
 看看GPT的解释：
+
 **1. 初始设置**
 - 通过 `C.augment(u).det()` 计算 \( m = \det(C_1, C_2, C_3, C_4, u) \)。  
   这一步利用了 \( u \) 与 \( C_1, C_2, C_3, C_4 \) 的线性依赖性质，确保在模 \( m \) 下方程有解。
