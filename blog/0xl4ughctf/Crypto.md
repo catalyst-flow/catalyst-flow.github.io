@@ -94,6 +94,7 @@ here is my 7 xs can u get my private key ?
 非常简洁，仅仅给出了7个椭圆曲线上的点的$x$坐标，分别是$P,P+G...P+6G$，而$P=G*flag$，此外没有给出任何信息，甚至没有给出椭圆曲线的参数$p,a,b$，我也不知道博主从哪里找到了一篇[paper](https://arxiv.org/pdf/1609.03305)就记载了如何通过这样的序列还原椭圆曲线的参数。
 
 这里就不直接给出具体数学原理了，直接给出论文的攻击手段。首先记这7个$x$的坐标依次为$x_1,x_2,...x_7$，并且构造矩阵C如下：
+
 $$
 C = 
 \begin{bmatrix}
@@ -104,7 +105,9 @@ C =
 2x_6^2 + 2x_6(x_5 + x_7) & 2x_6 - (x_5 + x_7) & 2x_6 & 2
 \end{bmatrix}
 $$
+
 再构造矢量u:
+
 $$
 u = 
 \begin{bmatrix}
@@ -115,6 +118,7 @@ u =
 (x_5 + x_7) \cdot x_6^2
 \end{bmatrix}
 $$
+
 现在记$m=det(C,u)$，然后尝试去解方程$Ce=umod m$，这里可以保证$p|m$，这里我们必须常识逐渐去消除掉$m$多余的因子，并保留素数$p$，比方说除去100以内的因子可以采用博主[Connor](https://connor-mccartney.github.io/cryptography/ecc/PrivateCurve-0xl4ughCTF2024)给出的如下代码：
 ```python
 m = C.augment(u).det()
