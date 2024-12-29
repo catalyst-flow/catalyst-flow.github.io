@@ -1,3 +1,5 @@
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> <script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: { skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'], inlineMath: [['$','$'], ["\\(","\\)"]], displayMath: [["$$","$$"], ["\\[","\\]"]] } }); </script>
+
 # ECDSA与Grobner基：利用sage解约束方程
 
 本题来自于2024年0xl4ughctf的一道密码学题，里面的数学原理`Grobner基`其实不是很会，但是希望以后遇到相似的题目至少有思路，会调用sage脚本。解题主要分为三个部分：
