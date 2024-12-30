@@ -2,7 +2,9 @@
 
 # 20240xl4ughctf密码学部分题目复现
 
-## Capawchino Cafe(ECDSA与Grobner基：利用sage解约束方程)
+## Capawchino Cafe
+
+主要知识点为：ECDSA与Grobner基：利用sage解约束方程。
 
 本题来自于2024年0xl4ughctf的一道密码学题，里面的数学原理Grobner基其实不是很会，但是希望以后遇到相似的题目至少有思路，会调用sage脚本。解题主要分为三个部分：
 1. AES.CRT，这一部分因为复用了`IV`，导致每次异或时使用的`KEY`相同，因此根据题目给的一个例子异或出`KEY`，然后每次用相同的`KEY`加密得到密文即可。
@@ -238,7 +240,9 @@ PS: ecc常见攻击手段
 3. 如果椭圆曲线的阶与模数p相同，可以采用Smart攻击；
 4. 如果椭圆曲线的阶是$p^k-1$的因数，这里的$k$较小，可以考虑采用mov攻击。
 
-## small eqs(Lucas序列)
+## small eqs
+
+主要知识点为：Lucas序列，假设p为n的质因子，当(p+1)光滑时，可以采用该攻击手段。
 
 原题代码如下：
 ```python
